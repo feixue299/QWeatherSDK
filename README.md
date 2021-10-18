@@ -5,6 +5,9 @@
 [![License](https://img.shields.io/cocoapods/l/QWeatherSDK.svg?style=flat)](https://cocoapods.org/pods/QWeatherSDK)
 [![Platform](https://img.shields.io/cocoapods/p/QWeatherSDK.svg?style=flat)](https://cocoapods.org/pods/QWeatherSDK)
 
+## Description
+官方未提供cocoapods集成方式，所以自建了一个官方SDK的集成方式。版本号同步官方SDK版本。
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
