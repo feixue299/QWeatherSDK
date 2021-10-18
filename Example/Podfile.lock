@@ -1,0 +1,16 @@
+PODS:
+  - QWeatherSDK (0.1.0)
+
+DEPENDENCIES:
+  - QWeatherSDK (from `../`)
+
+EXTERNAL SOURCES:
+  QWeatherSDK:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  QWeatherSDK: f5ef4f6de7203a59c3387ae97671d2f9205cd757
+
+PODFILE CHECKSUM: ceddd464eafddae8e967eb3bedf2a4046c9fe623
+
+COCOAPODS: 1.10.1
