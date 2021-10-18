@@ -4,10 +4,4 @@ platform :ios, '9.0'
 
 target 'QWeatherSDK_Example' do
   pod 'QWeatherSDK', :path => '../'
-
-  target 'QWeatherSDK_Tests' do
-    inherit! :search_paths
-
-    
-  end
 end

@@ -7,6 +7,7 @@
 //
 
 #import "FXViewController.h"
+#import <QWeather/QWeather.h>
 
 @interface FXViewController ()
 
