@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'QWeatherSDK'
-  s.version          = '4.6'
+  s.version          = '4.2'
   s.summary          = '和风天气SDK，官方未提供cocoapods集成方式，所以自建了一个官方SDK的集成方式.'
 
   s.homepage         = 'https://github.com/feixue299/QWeatherSDK'
