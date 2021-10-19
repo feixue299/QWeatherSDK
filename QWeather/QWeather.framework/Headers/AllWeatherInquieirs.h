@@ -32,16 +32,11 @@ typedef NS_ENUM(NSInteger, INQUIRE_TYPE) {
     INQUIRE_TYPE_WARNINGLIST,//天气灾害预警城市列表
     INQUIRE_TYPE_INDICES_1D,// 当天生活指数
     INQUIRE_TYPE_INDICES_3D,// 3天生活指数
+    INQUIRE_TYPE_WEATHER_POI_NOW,//景点实况天气
+    INQUIRE_TYPE_WEATHER_POI_7D,//景点7天预报
     INQUIRE_TYPE_HISTORICAL_WEATHER,// 历史天气
     INQUIRE_TYPE_HISTORICAL_AIR,//历史空气质量
-    INQUIRE_TYPE_ASTRONOMY_SUN,//日出日落
-    INQUIRE_TYPE_ASTRONOMY_MOON,//月出月落
-    INQUIRE_TYPE_ASTRONOMY_SUN_ANGLE,//太阳高度角
-    INQUIRE_TYPE_STORM_LIST,//台风列表
-    INQUIRE_TYPE_STORM_TRACK,//台风实况和路径
-    INQUIRE_TYPE_STORM_FORECAST,//台风预报
-    INQUIRE_TYPE_OCEAN_TIDE,//潮汐
-    INQUIRE_TYPE_OCEAN_CURRENTS,//潮流
+    INQUIRE_TYPE_SUNMOON,//太阳和月亮
     INQUIRE_TYPE_GEO_CITY_LOOKUP,//城市查询
     INQUIRE_TYPE_GEO_TOPCITY,//热门城市查询
     INQUIRE_TYPE_GEO_POI_LOOKUP,//POI搜索
@@ -107,16 +102,8 @@ typedef NS_ENUM(NSInteger, INDICES_TYPE) {
     INDICES_TYPE_spi = 16,//防晒指数
     INDICES_TYPE_ski = 17,//滑雪指数
 };
-
-typedef NS_ENUM(NSInteger, BASIN_TYPE) {
-    BASIN_TYPE_AL = 0,//北大西洋
-    BASIN_TYPE_EP,//东太平洋
-    BASIN_TYPE_NP,//西北太平洋
-    BASIN_TYPE_SP,//西南太平洋
-    BASIN_TYPE_NI,//北印度洋
-    BASIN_TYPE_SI,//南印度洋
-};
-
+ 
+UIKIT_EXTERN NSString * const INDICES_TYPESTRING[];
 typedef NS_ENUM(NSInteger, SERCHMODE_TYPE) {
     SERCHMODE_TYPE_EXACT= 0,//精准查询
     SERCHMODE_TYPE_FUZZY = 1,//模糊搜索
@@ -211,28 +198,6 @@ typedef NS_ENUM(NSInteger, SERCHMODE_TYPE) {
 
 @property (nonatomic, copy) NSString *alt;
 
-/**
- 需要查询的台风所在的流域，例如中国处于西北太平洋，即 basin=NP。当前仅支持NP。
- AL North Atlantic 北大西洋
- EP Eastern Pacific 东太平洋
- NP NorthWest Pacific 西北太平洋
- SP SouthWestern Pacific 西南太平洋
- NI North Indian 北印度洋
- SI South Indian 南印度洋
- 必选
- */
-
-@property (nonatomic, assign) BASIN_TYPE basin;
-
-/**
- 支持查询本年度和上一年度的台风，例如：year=2020, year=2019
- */
-@property (nonatomic, copy) NSString *year;
-
-/**
- 需要查询的台风ID，StormID可通过台风查询API获取。例如 stormid=NP2018
- */
-@property (nonatomic, copy) NSString *stormID;
 #pragma mark - 可选参数
 
 /**
@@ -259,11 +224,11 @@ typedef NS_ENUM(NSInteger, SERCHMODE_TYPE) {
 
 /**
  生活指数数据类型，包括洗车指数、穿衣指数、钓鱼指数等。可以一次性获取多个类型的生活指数.
- indices内 放入需要的NSNumber类型，默认indices = @[[NSNumber numberWithInt:INDICES_TYPE_comf]]
+ indices内 放入需要的INDICES_TYPESTRING类型，默认indices = @[INDICES_TYPESTRING[INDICES_TYPE_comf]]
  
  具体生活指数的类型参数值如下：
  */
-@property (nonatomic, strong) NSArray<NSNumber *> *indices;
+@property (nonatomic, strong) NSArray *indices;
 
 /**
 选择POI所在城市，可设定只搜索在特定城市内的POI信息。城市名称可以是中文、英文或城市的LocationID。默认全世界范围。

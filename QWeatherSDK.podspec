@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/feixue299/QWeatherSDK.git', :tag => s.version.to_s }
   s.ios.deployment_target = '9.0'
   s.ios.vendored_frameworks = 'QWeather/QWeather.framework'
-
+  s.static_framework = true
 
   s.pod_target_xcconfig = { 'VALID_ARCHS' => 'arm64 armv7 x86_64',
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
